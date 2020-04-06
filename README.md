@@ -14,16 +14,29 @@ Here’s an [example list of API’s curated on GitHub](https://github.com/toddm
 
 ### Interpreted Requirements
 
-#### Minimum Viable Product (MVP)
+#### MUST: Minimum Viable Product (MVP)
 
-* MUST use modern framework (e.g. React, Angular, Vue, etc).
-* MUST perform a request to an API for initial data set.
-* MUST filter data pulled from an API.
-* NOT required to form the API request using dynamic inputs.
+* Use modern framework (e.g. React, Angular, Vue, etc).
+* Perform a request to an API for initial data set.
+* Filter data pulled from an API based on user input.
+* NOT required to form the API request using dynamic inputs. (custom route/service)
+* Be consumed on multiple viewport sizes.
 
-#### Features
+#### SHOULD: Expectations for a scalable interface system
 
-* 
+* Use components or hooks to compartmentalize functionality.
+* Use [BEM](http://getbem.com/introduction/) notation for specificity.
+* Include responsive/mobile-first styling. Possible [MaterialUI](https://material-ui.com/components/box/)
+
+#### COULD: Nice-to-have
+
+* Use Jest unit testing
+* Display loading animation/graphic during Ajax request
+* UI sugar
+
+#### WOULD: Long-term improvements and considerations
+
+* Abstract API request functionality to a custom route || node/express service
 
 ## Approach
 
