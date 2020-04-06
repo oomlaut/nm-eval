@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react';
+import './breweries.css';
 
-const Breweries = ({ breweries }) => {
+class Breweries extends Component {
+  render () {
+    
+    const { items } = this.props;
 
-  const hasItems = (breweries.length === 0) ? false : true;
+    return (
+      <section className="breweries">
+        <h2 className="breweries__heading">Breweries in <code>Milwaukee</code></h2>
+        { items.length > 0 ? (
+          <ul className="breweries__item-container">
+          { items.map((brewery) => (
+              <li key={brewery.id} className="breweries__item">
+                <a href="{brewery.website_url}">{brewery.name}</a>
+              </li>
+          )) }
+          </ul>
+        ) : (
+          <p className="breweries__empty">No items to display.</p>
+        ) }
 
-  return (
-    <section>
-      <h2>Breweries in <code>Milwaukee</code></h2>
-      {hasItems ? (
-        <ul>
-        {breweries.map((brewery) => (
-            <li key={brewery.id}><a href="{brewery.website_url}">{brewery.name}</a></li>
-        ))}
-        </ul>
-      ) : (
-        <p>No items to display.</p>
-      )}
-    </section>
-  )
+      </section>
+    )
+  }
 };
 
-export default Breweries
+export default Breweries;
