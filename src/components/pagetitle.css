@@ -1,0 +1,27 @@
+.PageTitle {
+  text-align: left;
+  background-color: #222;
+  padding:0;
+  margin:0;
+  border-bottom: 1px solid #202020;
+  display:flex;
+  align-items: baseline;
+}
+
+.PageTitle__heading {
+  font-size: 1.75rem;
+  color: #fff;
+  margin: 0;
+  margin-block-start: 0;
+  padding: 0.66rem 1rem;
+}
+
+.PageTitle__link,
+.PageTitle__link:hover,
+.PageTitle__link:active,
+.PageTitle__link:visited {
+  color: #fff;
+}
+
+/* mobile styling */
+
