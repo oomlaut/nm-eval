@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import * as _ from "lodash";
-import PageTitle from './components/pagetitle';
-import Loading from './components/loading';
-import Error from './components/error';
+import PageTitle from './components/PageTitle';
+import { Loading, Error } from './components/StatusStateMessaging';
 import FilterDataObject from './utilities/filterDataObject';
-import Breweries from './components/breweries';
+import Breweries from './components/Breweries';
 import './App.css';
 
 class App extends Component {
@@ -58,6 +57,9 @@ class App extends Component {
   }
 
   render() {
+
+    const filteredItems = FilterDataObject( this.state.data, this.state.filterText );
+
     return (
       <div className="app">
 
@@ -66,10 +68,9 @@ class App extends Component {
         {this.state.status === 'loading' ? (
           <Loading />
         ) : this.state.status === 'error' ? (
-          <Error message={this.state.error} />
+          <Error message={ this.state.error } />
         ) : this.state.status === 'success' ? (
           <div>
-
             <fieldset>
               <legend>User Input</legend>
               <label htmlFor="filterText">Filter by:</label>
@@ -83,7 +84,14 @@ class App extends Component {
               />
             </fieldset>
 
-            <Breweries items={ _.sortBy( FilterDataObject( this.state.data, this.state.filterText ), 'name' ) } />
+            { /* TODO: Extract into a component? */
+            this.state.filterText !== '' ? (
+              <div className="resultsInfo">
+                <p>Displaying <b className="resultsInfo__count">{ filteredItems.length }</b> results for <i className="resultsInfo__criteria">{ this.state.filterText }</i>: </p>
+              </div>
+            ): ''}
+
+            <Breweries items={ _.sortBy( filteredItems , 'name' ) } />
           </div>
         ) : null }
       </div>
