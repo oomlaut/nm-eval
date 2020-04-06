@@ -1,4 +1,7 @@
-.breweries { 
+.breweries {
     margin: 0 auto;
-    width:50%;
+}
+
+@media only screen and (min-width: 375px) {
+  /* Style adjustments for viewports that meet the condition */
 }
