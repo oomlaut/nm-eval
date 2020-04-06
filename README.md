@@ -1,4 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Northwestern Mutual Full-Stack Engineer Programming Evaluation
+
+## Description
+
+You’ll be working with a cross-functional engineering team to deliver PoC’s and experiments; you’ll be the lead engineer. To demonstrate excellence in modern development tools and frameworks, we ask that you complete the following challenge. Please use this test to show off your skill set and what you can bring to the team. You will be critiqued on your quality, completeness, creativity, and technologies. If we proceed forward in the interviewing process, you will be asked to walk through your code. Choose _modern_ technologies that exercise the breadth of approach and ones that you’re comfortable developing with.
+
+When you have completed the following challenge, place your code in a code repository, ex. github, bitbucket, dropbox, etc
+
+## Mission/Challenge
+
+Create a responsive (phone, tablet, desktop) web application that allows the user to quick filter a list of things. The top of the page will have a search input field and then below that a list of things in response to the filter. The things should be sorted alphabetically. The things could be anything, but should be AJAX pulled from a backend service that you write and should ultimately be pulled from an open public API.
+
+Here’s an [example list of API’s curated on GitHub](https://github.com/toddmotto/public-apis),  but feel free to use any public API you wish.
+
+### Interpreted Requirements
+
+#### Minimum Viable Product (MVP)
+
+* MUST use modern framework (e.g. React, Angular, Vue, etc).
+* MUST perform a request to an API for initial data set.
+* MUST filter data pulled from an API.
+* NOT required to form the API request using dynamic inputs.
+
+#### Features
+
+* 
+
+## Approach
+
+Find a suitable API to work with. For simplicity, let's go with one that does not require an OAuth or API key at this time.
+> It's Milwaukee, so how about [Breweries](https://www.openbrewerydb.org/)
+
+NM uses React extensively, so let's try our hand at that!
+
+### Application Struture
+
+Root
+- App wrapper
+  - Filter text box
+  - Data set item wrapper
+    - Interactable items
+
 
 ## Available Scripts
 
