@@ -2,6 +2,14 @@
     margin: 0 auto;
 }
 
-@media only screen and (min-width: 375px) {
+.breweries__heading {
+  text-align: center;
+}
+
+.breweries__locale {
+  border-bottom: 1px dotted #222;
+}
+
+@media only screen and (min-width: 376px) {
   /* Style adjustments for viewports that meet the condition */
 }

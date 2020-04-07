@@ -1,0 +1,8 @@
+/* ResultsInfo Component */
+
+.ResultsInfo {
+  background-color: rgba(255,255,255, 0.5);
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
