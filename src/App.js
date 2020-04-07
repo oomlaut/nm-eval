@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as _ from "lodash";
 import PageTitle from './components/PageTitle';
+import ResultsInfo from './components/ResultsInfo';
 import { Loading, Error } from './components/StatusStateMessaging';
 import FilterDataObject from './utilities/filterDataObject';
 import Breweries from './components/Breweries';
@@ -38,7 +39,7 @@ class App extends Component {
 
         return this.setState({
           status: 'success',
-          error: {},
+          error: [],
           data: res
         });
       })
@@ -57,11 +58,10 @@ class App extends Component {
   }
 
   render() {
-
     const filteredItems = FilterDataObject( this.state.data, this.state.filterText );
 
     return (
-      <div className="app">
+      <div className="App">
 
         <PageTitle />
 
@@ -70,13 +70,14 @@ class App extends Component {
         ) : this.state.status === 'error' ? (
           <Error message={ this.state.error } />
         ) : this.state.status === 'success' ? (
-          <div>
-            <fieldset>
-              <legend>User Input</legend>
-              <label htmlFor="filterText">Filter by:</label>
+          <div className="success">
+            <fieldset className="c FilterField">
+              <legend className="FilterField__heading">User Input</legend>
+              <label className="FilterField__text-label" htmlFor="filterText">Filter by:</label>
               <input
                 onChange={ this.handleChange }
                 id="filterText"
+                className="FilterField__text-input"
                 type="text"
                 placeholder="Filter Text"
                 value={ this.state.filterText }
@@ -84,12 +85,7 @@ class App extends Component {
               />
             </fieldset>
 
-            { /* TODO: Extract into a component? */
-            this.state.filterText !== '' ? (
-              <div className="resultsInfo">
-                <p>Displaying <b className="resultsInfo__count">{ filteredItems.length }</b> results for <i className="resultsInfo__criteria">{ this.state.filterText }</i>: </p>
-              </div>
-            ): ''}
+            <ResultsInfo count={ filteredItems.length } criteria={ this.state.filterText } />
 
             <Breweries items={ _.sortBy( filteredItems , 'name' ) } />
           </div>
