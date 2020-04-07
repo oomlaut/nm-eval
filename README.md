@@ -25,14 +25,14 @@ Here’s an [example list of API’s curated on GitHub](https://github.com/toddm
 #### SHOULD: Expectations for a scalable interface system
 
 * Use components or hooks to compartmentalize functionality.
-* Use [BEM](http://getbem.com/introduction/) notation for specificity.
-* Include responsive/mobile-first styling. Possible [MaterialUI](https://material-ui.com/components/box/)
+* Use [BEM](http://getbem.com/introduction/) notation for specificity and system-building.
+* Include responsive/mobile-first styling.
 
 #### COULD: Nice-to-have
 
-* Use Jest unit testing
 * Display loading animation/graphic during Ajax request
 * UI sugar
+* Use Jest unit testing
 
 #### WOULD: Long-term improvements and considerations
 
@@ -44,15 +44,36 @@ Find a suitable API to work with. For simplicity, let's go with one that does no
 > It's Milwaukee, so how about [Breweries](https://www.openbrewerydb.org/)
 
 NM uses React extensively, so let's try our hand at that!
+> While most of my experience in the last few years has been .NET and then a bit of Angular before that, I found React to be well-docuumented with a good number of resources. While I have to imagine there are a ton of nuances and patterns yet to be learned, the idea of passing data down from an App to Components was very familiar.
 
 ### Application Struture
 
+To separate concerns and keep the component hierarchy clean, I have broken up functionality as follows:
+
+```
 Root
 - App wrapper
   - Filter text box
+    - Results indicator
   - Data set item wrapper
-    - Interactable items
+    - Variable renderings based on request status
+    - Iteration of items
+```
 
+### `TODO`s
+
+Intermittently throughout the code you may see comment blocks containing `/* TODO: ... */`
+
+These are handy placemarkers to indicate where additional revisions, refactoring, or iteration may be beneficial. However in the sake of creating a Minimally Viable Product (MVP) and without a formal sprint
+that I'm working in I had to draw the line somewhere in terms of features and functionality.
+
+### Branching Strategy
+
+Every commit has been made directly against the `master` branch, which is not ideal but considering there are no other developers collaborating on it, and it is more-or-less a proof of concept, this
+was the most efficient way to get things done correctly.
+
+Ideally the master branch would remain pristine unless modified by Pull Request or part of the CI/CD process. A `feature/` branch would be created to represent the discrete work of a single user story or
+feature to be added in to the application for the sprint. Depending on the number of environments or the established workflow of the team, there would additionally be a `dev` or `development` branch that could aggregate changes, or the features would be merged back into master to be deployed to production.
 
 ## Available Scripts
 
