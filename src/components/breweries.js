@@ -19,10 +19,10 @@ class Breweries extends Component {
                   <a className="Breweries__link" href={ brewery.website_url } target="_blank" rel="noopener noreferrer">Website</a>
                 </div>
                 <div className="Breweries__row-item Breweries__row-item--map">
-                  <a className="Breweries__link" href={ 'https://www.google.com/maps/search/?api=1&query=' + brewery.latitude + ',' + brewery.longitude } target="_blank" rel="noopener noreferrer">Map</a>
+                  <a className="Breweries__link" href={ `https://www.google.com/maps/search/?api=1&query=${brewery.name.replace(' ', '+')}+${brewery.latitude},${brewery.longitude}` } target="_blank" rel="noopener noreferrer">Map</a>
                 </div>
                 <div className="Breweries__row-item Breweries__row-item--call">
-                <a className="Breweries__link" href={ 'tel:+1' + brewery.phone }>Call</a>
+                <a className="Breweries__link" href={ `tel:+1${brewery.phone}` }>Call</a>
                 </div>
               </div>
             </li>
