@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import './PageTitle.css'
 
+/* Summary:
+    Display the static markup used consistently across the top of the viewport.
+    Expects no props/parameters, contains no dynamic output.
+    */
+
 class PageTitle extends Component {
   render () {
     return (

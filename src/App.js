@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    /* Application state management is necessary to store and update the data necessary to render
+    /* Application state management is necessary to store and update the necessary rendering data
         Q: Convert to Redux?
         A: Redux is probably too heavy for this application's requirements.
         */
@@ -70,6 +70,7 @@ class App extends Component {
 
         <PageTitle />
 
+        { /* Depending on status of API request, display conditional rendering */ }
         {this.state.status === 'loading' ? (
           <Loading />
         ) : this.state.status === 'error' ? (

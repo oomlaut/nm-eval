@@ -1,9 +1,16 @@
 import * as _ from "lodash"
 
-/* TODO: update function notation and documentation */
+/* Summary:
+    Uses lodash in iterating over the data object
+    lodash comes along for free with React packages
+    Eliminates indexed values based on the provided filter criteria
+    */
+
+/* TODO: update function notation and documentation depending on team styles/standards if applicable */
 const filterDataObject = (data, filter) => {
     const tmp = []
     data.map(item => {
+      /* TODO: investigate how to import only the necessary 'includes' function instead of the whole lodash package */
       if( filter === null || _.includes( item.name.toString().toLowerCase(), filter.toString().toLowerCase() ) ) {
         tmp.push(item)
       }

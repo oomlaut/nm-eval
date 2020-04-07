@@ -1,12 +1,15 @@
 import React from 'react'
 import './FilterField.css'
 
-/* TODO: Debug and implement as hook/component into the fieldset view to pass change value back to parent */
+/* Summary:
+    Accept a callback onChange event into the view, passing changed value back to parent.
+    Allow a default value to be optionally specified.
+    Disable the input field for all unsuccessful request states.
+    */
 
 class FilterField extends React.Component {
   state = {
-    value: this.props.defaultValue || '',
-
+    value: this.props.defaultValue || ''
   }
 
   handleChange = event => {
