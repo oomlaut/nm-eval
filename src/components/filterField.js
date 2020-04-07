@@ -1,8 +1,10 @@
 import React from 'react'
 
+/* TODO: Debug and implement as hook/component into the fieldset view to pass change value back to parent */
+
 // hooks
 
-function FilterField({ defaultValue = '', onChange }) {
+function FilterFieldHook({ defaultValue = '', onChange }) {
   const [state, setState] = React.useState(defaultValue);
 
   const handleChange = event => {
@@ -20,7 +22,7 @@ function FilterField({ defaultValue = '', onChange }) {
 
 // component
 
-class FilterField extends React.Component {
+class FilterFieldComponent extends React.Component {
   state = {
     value: this.props.defaultValue || '',
   }
