@@ -71,7 +71,7 @@ class App extends Component {
           <Error message={ this.state.error } />
         ) : this.state.status === 'success' ? (
           <div className="c Success">
-            <fieldset className="c FilterField">
+            <fieldset className="FilterField">
               <legend className="FilterField__heading">User Input</legend>
               <label className="FilterField__text-label" htmlFor="filterText">Filter by:</label>
               <input

@@ -3,15 +3,11 @@ import './Breweries.css';
 
 class Breweries extends Component {
   render () {
-
     const { items } = this.props;
-
-    console.dir(items);
 
     return (
       <section className="Breweries">
         <h2 className="Breweries__heading">Breweries in <span className="Breweries__locale">Milwaukee</span></h2>
-        <p></p>
         { items.length > 0 ? (
           <ul className="Breweries__item-container">
           { items.map((brewery) => (

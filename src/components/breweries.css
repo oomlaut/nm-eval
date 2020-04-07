@@ -1,4 +1,4 @@
-.c.Breweries {
+.Breweries {
     margin: 0 auto;
 }
 
@@ -15,14 +15,14 @@
 }
 
 .Breweries__item-container{
-  margin: 0;
+  margin: 0 0 2rem;
   padding: 0;
   list-style-type: none;
 }
 
 .Breweries__item {
   border-top: 1px solid #222;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   background-color: rgba(255,255,255,0.75);
 }
 
@@ -49,13 +49,9 @@
 .Breweries__link {
   display: inline-block;
   padding: 0.125rem 0.75rem;
-  background-color: #f7a800;
   border: 1px solid #555;
   text-decoration: none;
-}
-
-@media only screen and (max-width: 375px) {
-
+  box-shadow: 1px 1px #999;
 }
 
 @media only screen and (min-width: 376px) {
@@ -63,11 +59,25 @@
     text-align: left;
   }
 
-  .Breweries__row-wrap {
-    display:flex;
+  .Breweries__item {
+    display: flex;
   }
 
-  .Breweries__row-item--phone {
+  .Breweries__name,
+  .Breweries__row-wrap {
+    width: 50%;
+    align-items: baseline;
+  }
+
+  .Breweries__row-item--call {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .Breweries {
+    max-width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
