@@ -9,29 +9,31 @@ class Breweries extends Component {
     console.dir(items);
 
     return (
-      <section className="c breweries">
-        <h2 className="breweries__heading">Breweries in <span className="breweries__locale">Milwaukee</span></h2>
+      <section className="Breweries">
+        <h2 className="Breweries__heading">Breweries in <span className="Breweries__locale">Milwaukee</span></h2>
         <p></p>
         { items.length > 0 ? (
-          <ul className="breweries__item-container">
+          <ul className="Breweries__item-container">
           { items.map((brewery) => (
-            <li key={ brewery.id } className="breweries__item">
-              <h3 className="breweries__name">{ brewery.name }</h3>
+            <li key={ brewery.id } className="Breweries__item">
               { /* TODO: Add nullchecks to ensure data is present for UI integrity */ }
-              <a className="breweres__link breweries__link--site" href={ brewery.website_url } target="_blank" rel="noopener noreferrer">Website</a>
-              <a className="breweres__link breweries__link--call" href={ 'tel:+1' + brewery.phone }>Call {brewery.phone}</a>
-              <address>
-                <span>{ brewery.street }</span>
-                <span>{ brewery.city }</span>
-                <span>{ brewery.state }</span>
-                <span>{ brewery.postal_code }</span>
-              </address>
-              <a className="breweres__link breweries__link--map" href={ 'https://www.google.com/maps/search/?api=1&query=' + brewery.latitude + ',' + brewery.longitude } target="_blank" rel="noopener noreferrer">Map</a>
+              <h3 className="Breweries__name">{ brewery.name }</h3>
+              <div className="Breweries__row-wrap">
+                <div className="Breweries__row-item Breweries__row-item--site">
+                  <a className="Breweries__link" href={ brewery.website_url } target="_blank" rel="noopener noreferrer">Website</a>
+                </div>
+                <div className="Breweries__row-item Breweries__row-item--map">
+                  <a className="Breweries__link" href={ 'https://www.google.com/maps/search/?api=1&query=' + brewery.latitude + ',' + brewery.longitude } target="_blank" rel="noopener noreferrer">Map</a>
+                </div>
+                <div className="Breweries__row-item Breweries__row-item--call">
+                <a className="Breweries__link" href={ 'tel:+1' + brewery.phone }>Call</a>
+                </div>
+              </div>
             </li>
           )) }
           </ul>
         ) : (
-          <p className="breweries__empty">No items to display.</p>
+          <p className="Breweries__empty">No items to display.</p>
         ) }
 
       </section>

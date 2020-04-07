@@ -8,7 +8,7 @@ class ResultsInfo extends Component {
     if (criteria !== '') {
       return (
         <div className="c ResultsInfo">
-          <p>Displaying <b className="ResultsInfo__count">{ count }</b> results for <i className="ResultsInfo__criteria">{ criteria }</i>: </p>
+          <p className="ResultsInfo__content">Displaying <b className="ResultsInfo__count">{ count }</b> results for <i className="ResultsInfo__criteria">&ldquo;{ criteria }&rdquo;</i></p>
         </div>
       )
     }

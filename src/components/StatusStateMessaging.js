@@ -18,10 +18,10 @@ class Loading extends Component {
   render () {
     return (
       <div className="c Loading message message--loading">
-        <div class="loading__container">
-          <div class="loading__bubble loading__bubble--1"></div>
-          <div class="loading__bubble loading__bubble--2"></div>
-          <div class="loading__bubble loading__bubble--3"></div>
+        <div className="loading__container">
+          <div className="loading__bubble loading__bubble--1"></div>
+          <div className="loading__bubble loading__bubble--2"></div>
+          <div className="loading__bubble loading__bubble--3"></div>
         </div>
         <p className="message__content message__content--loading">The data is loading&hellip;</p>
         { /* TODO: loading graphic/animation */ }

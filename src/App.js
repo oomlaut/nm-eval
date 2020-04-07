@@ -70,7 +70,7 @@ class App extends Component {
         ) : this.state.status === 'error' ? (
           <Error message={ this.state.error } />
         ) : this.state.status === 'success' ? (
-          <div className="success">
+          <div className="c Success">
             <fieldset className="c FilterField">
               <legend className="FilterField__heading">User Input</legend>
               <label className="FilterField__text-label" htmlFor="filterText">Filter by:</label>
@@ -88,6 +88,7 @@ class App extends Component {
             <ResultsInfo count={ filteredItems.length } criteria={ this.state.filterText } />
 
             <Breweries items={ _.sortBy( filteredItems , 'name' ) } />
+
           </div>
         ) : null }
       </div>

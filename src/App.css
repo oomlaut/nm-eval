@@ -46,6 +46,7 @@ a {
 }
 
 a:hover {
+  text-decoration: none;
   background-size: 100% 100%;
 }
 
@@ -75,10 +76,13 @@ a:hover {
 }
 
 .c {
-  margin: 1rem;
+  margin-top: 1rem ;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* FilterField styling */
+
 .FilterField {
   background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
@@ -86,12 +90,6 @@ a:hover {
   font-size: 1.25rem;
   margin-bottom: 0;
   padding: 1rem 0 1.5rem;
-}
-
-@media only screen and (min-width: 376px) {
-  .FilterField {
-    padding-bottom: 1rem;
-  }
 }
 
 .FilterField__heading {
@@ -104,16 +102,20 @@ a:hover {
   font-weight: 700;
 }
 
-@media only screen and (min-width: 376px) {
-  .FilterField__text-label {
-    display: inline-block;
-    margin-right: 1rem;
-  }
-}
-
 .FilterField__text-input {
   display: inline-block;
   font-family: 'Lato', sans-serif;
   font-size: inherit;
   padding: 0.25rem 0.5rem;
+}
+
+@media only screen and (min-width: 376px) {
+  .FilterField {
+    padding-bottom: 1rem;
+  }
+
+  .FilterField__text-label {
+    display: inline-block;
+    margin-right: 1rem;
+  }
 }
