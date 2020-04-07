@@ -1,4 +1,5 @@
 import React from 'react'
+import './FilterField.css'
 
 /* TODO: Debug and implement as hook/component into the fieldset view to pass change value back to parent */
 
@@ -9,17 +10,17 @@ class FilterField extends React.Component {
   }
 
   handleChange = event => {
-    const { onChange } = this.props;
-    const { value } = event.target;
-    this.setState({ value });
+    const { onChange } = this.props
+    const { value } = event.target
+    this.setState({ value })
     if (onChange) {
-      onChange(value);
+      onChange(value)
     }
-  };
+  }
 
   render () {
-    const { value } = this.state;
-    const { disabled } = this.props;
+    const { value } = this.state
+    const { disabled } = this.props
 
     return (
       <fieldset className="FilterField">
@@ -35,8 +36,8 @@ class FilterField extends React.Component {
           disabled={ disabled }
         />
       </fieldset>
-    );
+    )
   }
 }
 
-export default FilterField;
+export default FilterField

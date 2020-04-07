@@ -12,9 +12,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    /* TODO: Convert to Redux.
-       - Redux is probably too heavy for this application's requirements.
-       */
+    /* Application state management is necessary to store and update the data necessary to render
+        Q: Convert to Redux?
+        A: Redux is probably too heavy for this application's requirements.
+        */
     this.state = {
       locale: 'milwaukee',
       status: 'idle',
@@ -35,6 +36,7 @@ class App extends Component {
       .then((res) => {
         /* Handle the returned data that has been handily converted to JSON */
         if (res.error && res.error.message) {
+          /* Exit the function early and update state data with information relating to the error that occurred. */
           return this.setState({
             status: 'error',
             error: res.error,
@@ -43,12 +45,14 @@ class App extends Component {
         }
 
         return this.setState({
+          /* The response did not include an error, so update the state data accordingly. */
           status: 'success',
           error: [],
           data: res
         });
       })
       .catch((err) => {
+        /* An error occurred outside the response. Capture it and update state. */
         this.setState({
           status: 'error',
           data: [],
@@ -58,6 +62,7 @@ class App extends Component {
   }
 
   render() {
+    /* Keep business logic out of the component parameters; use the imported utility function */
     const filteredItems = FilterDataObject( this.state.data, this.state.filterText );
 
     return (
