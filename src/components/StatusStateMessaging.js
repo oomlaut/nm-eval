@@ -5,7 +5,7 @@ class Error extends Component {
   render () {
     const { message } = this.props;
     return (
-      <div className="Error message message--error">
+      <div className="c Error message message--error">
         <p className="message__content">An error occurred.</p>
         { /* TODO: hide error in non-production environments */ }
         <pre className="message__caption message__caption--error">{ message }</pre>
@@ -17,8 +17,13 @@ class Error extends Component {
 class Loading extends Component {
   render () {
     return (
-      <div className="Loading message message--loading">
-        <p className="message__content message__content--loading">The data is loading.</p>
+      <div className="c Loading message message--loading">
+        <div class="loading__container">
+          <div class="loading__bubble loading__bubble--1"></div>
+          <div class="loading__bubble loading__bubble--2"></div>
+          <div class="loading__bubble loading__bubble--3"></div>
+        </div>
+        <p className="message__content message__content--loading">The data is loading&hellip;</p>
         { /* TODO: loading graphic/animation */ }
       </div>
     );

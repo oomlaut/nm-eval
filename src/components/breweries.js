@@ -9,8 +9,8 @@ class Breweries extends Component {
     console.dir(items);
 
     return (
-      <section className="breweries">
-        <h2 className="breweries__heading">Breweries in <code>Milwaukee</code></h2>
+      <section className="c breweries">
+        <h2 className="breweries__heading">Breweries in <span className="breweries__locale">Milwaukee</span></h2>
         <p></p>
         { items.length > 0 ? (
           <ul className="breweries__item-container">
