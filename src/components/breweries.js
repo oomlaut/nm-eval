@@ -14,7 +14,7 @@ class Breweries extends Component {
     return (
       <section className="Breweries">
         <h2 className="Breweries__heading">Breweries in <span className="Breweries__locale">Milwaukee</span></h2>
-        { items.length > 0 ? (
+        { items !== undefined && items.length > 0 ? (
           <ul className="Breweries__item-container">
           { items.map((brewery) => (
             <li key={ brewery.id } className="Breweries__item">
