@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './Breweries.css';
+import React, { Component } from 'react'
+import './Breweries.css'
 
 class Breweries extends Component {
   render () {
-    const { items } = this.props;
+    const { items } = this.props
 
     return (
       <section className="Breweries">
@@ -35,6 +35,6 @@ class Breweries extends Component {
       </section>
     )
   }
-};
+}
 
-export default Breweries;
+export default Breweries

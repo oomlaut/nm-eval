@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './StatusStateMessaging.css';
+import React, { Component } from 'react'
+import './StatusStateMessaging.css'
 
 class Error extends Component {
   render () {
@@ -12,7 +12,7 @@ class Error extends Component {
       </div>
     )
   }
-};
+}
 
 class Loading extends Component {
   render () {
@@ -26,9 +26,9 @@ class Loading extends Component {
         <p className="message__content message__content--loading">The data is loading&hellip;</p>
         { /* TODO: loading graphic/animation */ }
       </div>
-    );
+    )
   }
-};
+}
 
 export {
   Error,

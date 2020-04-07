@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import * as _ from "lodash";
-import PageTitle from './components/PageTitle';
-import FilterField from './components/FilterField';
-import ResultsInfo from './components/ResultsInfo';
-import { Loading, Error } from './components/StatusStateMessaging';
-import FilterDataObject from './utilities/filterDataObject';
-import Breweries from './components/Breweries';
-import './App.css';
+import React, { Component } from 'react'
+import * as _ from "lodash"
+import PageTitle from './components/PageTitle'
+import FilterField from './components/FilterField'
+import ResultsInfo from './components/ResultsInfo'
+import { Loading, Error } from './components/StatusStateMessaging'
+import FilterDataObject from './utilities/filterDataObject'
+import Breweries from './components/Breweries'
+import './App.css'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     /* Application state management is necessary to store and update the data necessary to render
         Q: Convert to Redux?
@@ -22,13 +22,13 @@ class App extends Component {
       error: {},
       data: [],
       filterText: ''
-    };
+    }
 
   }
 
   /* When the App component mounts, fire off an Ajax request to the API to return data to work with */
   componentDidMount() {
-    this.setState({ status: 'loading' });
+    this.setState({ status: 'loading' })
 
     /* TODO: allow the user to choose from a list of cities? */
     fetch('https://api.openbrewerydb.org/breweries?by_city=' + this.state.locale)
@@ -41,7 +41,7 @@ class App extends Component {
             status: 'error',
             error: res.error,
             data: []
-          });
+          })
         }
 
         return this.setState({
@@ -49,7 +49,7 @@ class App extends Component {
           status: 'success',
           error: [],
           data: res
-        });
+        })
       })
       .catch((err) => {
         /* An error occurred outside the response. Capture it and update state. */
@@ -57,13 +57,13 @@ class App extends Component {
           status: 'error',
           data: [],
           error: err
-        });
-      });
+        })
+      })
   }
 
   render() {
     /* Keep business logic out of the component parameters; use the imported utility function */
-    const filteredItems = FilterDataObject( this.state.data, this.state.filterText );
+    const filteredItems = FilterDataObject( this.state.data, this.state.filterText )
 
     return (
       <div className="App">
@@ -85,8 +85,8 @@ class App extends Component {
           </div>
         ) : null }
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
