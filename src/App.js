@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as _ from "lodash";
 import PageTitle from './components/PageTitle';
+import FilterField from './components/FilterField';
 import ResultsInfo from './components/ResultsInfo';
 import { Loading, Error } from './components/StatusStateMessaging';
 import FilterDataObject from './utilities/filterDataObject';
@@ -11,6 +12,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    /* TODO: Convert to Redux.
+       - Redux is probably too heavy for this application's requirements.
+       */
     this.state = {
       locale: 'milwaukee',
       status: 'idle',
@@ -19,9 +23,9 @@ class App extends Component {
       filterText: ''
     };
 
-    this.handleChange = this.handleChange.bind(this);
   }
 
+  /* When the App component mounts, fire off an Ajax request to the API to return data to work with */
   componentDidMount() {
     this.setState({ status: 'loading' });
 
@@ -29,6 +33,7 @@ class App extends Component {
     fetch('https://api.openbrewerydb.org/breweries?by_city=' + this.state.locale)
       .then(res => res.json())
       .then((res) => {
+        /* Handle the returned data that has been handily converted to JSON */
         if (res.error && res.error.message) {
           return this.setState({
             status: 'error',
@@ -52,11 +57,6 @@ class App extends Component {
       });
   }
 
-  handleChange(e) {
-    e.preventDefault();
-    this.setState({ filterText: e.target.value });
-  }
-
   render() {
     const filteredItems = FilterDataObject( this.state.data, this.state.filterText );
 
@@ -71,19 +71,7 @@ class App extends Component {
           <Error message={ this.state.error } />
         ) : this.state.status === 'success' ? (
           <div className="c Success">
-            <fieldset className="FilterField">
-              <legend className="FilterField__heading">User Input</legend>
-              <label className="FilterField__text-label" htmlFor="filterText">Filter by:</label>
-              <input
-                onChange={ this.handleChange }
-                id="filterText"
-                className="FilterField__text-input"
-                type="text"
-                placeholder="Filter Text"
-                value={ this.state.filterText }
-                disabled={ this.state.status !== 'success' }
-              />
-            </fieldset>
+            <FilterField onChange={ value => this.setState({ filterText: value }) } disabled={ this.state.status !== 'success' } />
 
             <ResultsInfo count={ filteredItems.length } criteria={ this.state.filterText } />
 

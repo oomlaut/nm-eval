@@ -2,29 +2,10 @@ import React from 'react'
 
 /* TODO: Debug and implement as hook/component into the fieldset view to pass change value back to parent */
 
-// hooks
-
-function FilterFieldHook({ defaultValue = '', onChange }) {
-  const [state, setState] = React.useState(defaultValue);
-
-  const handleChange = event => {
-    const { value } = event.target;
-    setState(value);
-    if (onChange) {
-      onChange(value);
-    }
-  };
-
-  return (
-    <input type="text" value={state} onChange={handleChange} />
-  );
-};
-
-// component
-
-class FilterFieldComponent extends React.Component {
+class FilterField extends React.Component {
   state = {
     value: this.props.defaultValue || '',
+
   }
 
   handleChange = event => {
@@ -38,8 +19,22 @@ class FilterFieldComponent extends React.Component {
 
   render () {
     const { value } = this.state;
+    const { disabled } = this.props;
+
     return (
-      <input type="text" value={value} onChange={this.handleChange} />
+      <fieldset className="FilterField">
+        <legend className="FilterField__heading">User Input</legend>
+        <label className="FilterField__text-label" htmlFor="filterText">Filter by:</label>
+        <input
+          onChange={ this.handleChange }
+          id="filterText"
+          className="FilterField__text-input"
+          type="text"
+          placeholder="Filter Text"
+          value={ value }
+          disabled={ disabled }
+        />
+      </fieldset>
     );
   }
 }
