@@ -67,6 +67,10 @@ Intermittently throughout the code you may see comment blocks containing `/* TOD
 These are handy placemarkers to indicate where additional revisions, refactoring, or iteration may be beneficial. However in the sake of creating a Minimally Viable Product (MVP) and without a formal sprint
 that I'm working in I had to draw the line somewhere in terms of features and functionality.
 
+### Unit/Integration Testing
+
+The utility function `filterDataObject` is the most thoroughly tested. I have included other _*.test.js*_ files with notes of how they could be could include further testing, but since most are only straightforward components with mostly static content they are not completely fleshed out.
+
 ### Branching Strategy
 
 Every commit has been made directly against the `master` branch, which is not ideal but considering there are no other developers collaborating on it, and it is more-or-less a proof of concept, this
