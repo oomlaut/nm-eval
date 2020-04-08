@@ -7,11 +7,11 @@ import * as _ from "lodash"
     */
 
 /* TODO: update function notation and documentation depending on team styles/standards if applicable */
-const filterDataObject = (data, filter) => {
+const filterDataObject = (data, index, filter) => {
     const tmp = []
     data.map(item => {
       /* TODO: investigate how to import only the necessary 'includes' function instead of the whole lodash package */
-      if( filter === null || _.includes( item.name.toString().toLowerCase(), filter.toString().toLowerCase() ) ) {
+      if( filter === null || filter === undefined || _.includes( item[index].toString().toLowerCase(), filter.toString().toLowerCase() ) ) {
         tmp.push(item)
       }
       return null
