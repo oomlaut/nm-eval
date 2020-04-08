@@ -2,14 +2,14 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { Error, Loading } from './StatusStateMessaging'
 
-test('renders Error', () => {
+test('renders <Error />', () => {
   const { getByText } = render(<Error />)
-  const results = getByText(/./i)
-  expect(results).toBeInTheDocument()
+  const sampleText = getByText(/Error/i)
+  expect(sampleText).toBeInTheDocument()
 })
 
-test('renders Loading', () => {
+test('renders <Loading />', () => {
   const { getByText } = render(<Loading />)
-  const results = getByText(/./i)
-  expect(results).toBeInTheDocument()
+  const sampleText = getByText(/Loading/i)
+  expect(sampleText).toBeInTheDocument()
 })

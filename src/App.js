@@ -63,7 +63,7 @@ class App extends Component {
 
   render() {
     /* Keep business logic out of the component parameters; use the imported utility function */
-    const filteredItems = FilterDataObject( this.state.data, this.state.filterText )
+    const filteredItems = FilterDataObject( this.state.data, 'name', this.state.filterText )
 
     return (
       <div className="App">

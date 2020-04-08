@@ -2,8 +2,14 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import App from './App'
 
-test('renders App', () => {
+test('render <App />', () => {
   const { getByText } = render(<App />)
-  const linkElement = getByText(/NM Programming/i)
-  expect(linkElement).toBeInTheDocument()
+  const headingText = getByText(/NM Programming/i)
+  expect(headingText).toBeInTheDocument()
 })
+
+/* Other possible test for <App />:
+    - component mount/dismount
+    - performs API call
+    - renders sub-components (e.g. PageTitle, Loading, Error, FilterField, ResultsInfo || Breweries)
+  */
